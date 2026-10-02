@@ -126,9 +126,8 @@ const oval =
 // 1. Make 3 layer groups for the points
 
 const traditionsLayer = L.layerGroup(
-    traditions_eats.map(f => L.marker(f.coords, { icon: svgIcon(QEATS_COLOR) })
-        .bindPopup(`<strong>${f.name}</strong><br/>${f.note}`)))
-        .addTo(map);
+    traditions_eats.map(f => L.marker(f.coords, { icon: svgIcon(QEATS_COLOR) }))
+).addTo(map);
 
 const entertainmentLayer = L.layerGroup(
   entertainment.map(f => L.marker(f.coords, { icon: svgIcon(STORE_COLOR) })) // construct a new array
@@ -161,6 +160,6 @@ const radar = L.tileLayer.wms('https://mesonet.agron.iastate.edu/cgi-bin/wms/nex
 
 L.control.layers(
     { "Streets": streets, "Topographic": topo, "Satellite": satellite, "OpenStreetMap": osm },
-    { "Quick eats": traditionsLayer, "Enterntainment": entertainmentLayer, "Landmarks": landmarksLayer, 
+    { "Traditions Restaurants": traditionsLayer, "Entertainment": entertainmentLayer, "Landmarks": landmarksLayer, 
         "Streets": linesLayer, "Campus Icons": buildingLayer, "Radar": radar }
 ).addTo(map);
