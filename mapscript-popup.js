@@ -24,15 +24,14 @@ const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 })
 
 const quick_eats = [
-    { name: "Qdoba Mexican Eats",  coords: [40.002265770114704, -83.00831544391653] },
-    { name: "Red Chili",           coords: [40.0020812252386, -83.00827194929629] },
-    { name: "Smashburger",         coords: [39.999824185055225, -83.007835944253] },
-    { name: "Dave's Hot Chicken",  coords: [39.99964518131456, -83.00783907331429] }
+    { name: "Qdoba Mexican Eats",  coords: [40.002265770114704, -83.00831544391653], note: "Tried once and it is good." },
+    { name: "Red Chili",           coords: [40.0020812252386, -83.00827194929629], note: "Never been here." },
+    { name: "Smashburger",         coords: [39.999824185055225, -83.007835944253], note: "Good fries." },
+    { name: "Dave's Hot Chicken",  coords: [39.99964518131456, -83.00783907331429], note: "Good deal for college students." }
 ]
 
 const convenience_stores = [
-    {name: "Target",               coords: [40.00094825710499, -83.00802044889093]}
-]
+    {name: "Target", coords: [40.00094825710499, -83.00802044889093], note: "There is a Starbucks inside."}
 
 // These may or may not be "landmarks", but a square and a garage are hard to miss 
 const landmarks = [
@@ -150,8 +149,9 @@ const north =
 // 1. Make 3 layer groups for the points
 
 const qeatsLayer = L.layerGroup(
-  quick_eats.map(f => L.marker(f.coords, { icon: svgIcon(QEATS_COLOR) })) // construct a new array
-).addTo(map);
+    quick_eats.map(f => L.marker(f.coords, { icon: svgIcon(QEATS_COLOR) })
+        .bindPopup(`<strong>${f.name}</strong><br/>${f.note}`)))
+        .addTo(map);
 
 const storesLayer = L.layerGroup(
   convenience_stores.map(f => L.marker(f.coords, { icon: svgIcon(STORE_COLOR) })) // construct a new array
@@ -172,7 +172,7 @@ const linesLayer = L.layerGroup([
 const polygon_style = {color: '#1f6f78', fillColor: '#1f6f78', fillOpacity: 0.25};
 
 const buildingLayer = L.layerGroup([
-    L.polygon(sullivant, polygon_style),
+    L.polygon(sullivant, polygon_style).bindTooltip('Billy Ireland Cartoon Library & Museum', { direction: 'top', offset: [0, -8]}),
     L.polygon(mershon, polygon_style),
     L.polygon(north, polygon_style),
     L.polygon(varsity, polygon_style)
