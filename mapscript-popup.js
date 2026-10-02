@@ -32,6 +32,7 @@ const quick_eats = [
 
 const convenience_stores = [
     {name: "Target", coords: [40.00094825710499, -83.00802044889093], note: "There is a Starbucks inside."}
+]
 
 // These may or may not be "landmarks", but a square and a garage are hard to miss 
 const landmarks = [
