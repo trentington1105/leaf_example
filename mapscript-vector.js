@@ -1,8 +1,7 @@
 const map = L.map('map', { 
-    center: [40.0007, -83.008], // -- NEW
-    zoom: 17                    // -- NEW
+    center: [40.0007, -83.0095], // -- NEW
+    zoom: 17                  // -- NEW
 });
-
 
 const streets = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
     maxZoom: 19, 
