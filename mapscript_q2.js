@@ -99,27 +99,20 @@ const mershon = [
 
 // polygon with holes
 // make sure the exterior is counterclockwise and all interiors are clockwise
-const varsity = [
+const Derby = [
     // outer ring
     [
-        [40.00186274625445, -83.00764495057426],
-        [40.00179805243919, -83.00826414094233],
-        [40.00092085624277, -83.0080915186693],
-        [40.00099417919893, -83.00747421703964]
+        [40.0009489379062, -83.01283223246266],
+        [40.0005584633658, -83.01279163418609],
+        [40.00066212939072, -83.01202026693161],
+        [40.001038781289736, -83.01211950716318]
     ],
     // first hole
     [
-        [40.00164607696715, -83.00802011772734],
-        [40.00166897510807, -83.00782073636937],
-        [40.00149216790312, -83.00780556394065],
-        [40.00147636032451, -83.007971901448]
-    ],
-    // south hole
-    [
-        [40.00131829901151, -83.00793823080045],
-        [40.00134008864003, -83.00776928111307],
-        [40.00114019737254, -83.00772226278664],
-        [40.00113232740786, -83.00788252226585]
+        [40.00089710513114, -83.01269690487415],
+        [40.00095239342314, -83.01222776923397],
+        [40.00074160656988, -83.01218717095743],
+        [40.00068286257682, -83.01265630659759]
     ]
 ]
 
@@ -185,7 +178,7 @@ const buildingLayer = L.layerGroup([
     L.polygon(sullivant, polygon_style).bindTooltip('Billy Ireland Cartoon Library & Museum', { direction: 'top', offset: [0, -8]}),
     L.polygon(mershon, polygon_style),
     L.polygon(oval, polygon_style),
-    L.polygon(varsity, polygon_style)
+    L.polygon(Derby, polygon_style)
 ])
 
 const radar = L.tileLayer.wms('https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi', {
@@ -198,5 +191,5 @@ const radar = L.tileLayer.wms('https://mesonet.agron.iastate.edu/cgi-bin/wms/nex
 L.control.layers(
     { "Streets": streets, "Topographic": topo, "Satellite": satellite, "OpenStreetMap": osm },
     { "Quick eats": qeatsLayer, "Stores": storesLayer, "Landmarks": landmarksLayer, 
-        "Streets": linesLayer, "Buildings": buildingLayer, "Radar": radar }
+        "Streets": linesLayer, "Campus Icons": buildingLayer, "Radar": radar }
 ).addTo(map);
