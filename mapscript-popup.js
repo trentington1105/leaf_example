@@ -178,9 +178,15 @@ const buildingLayer = L.layerGroup([
     L.polygon(varsity, polygon_style)
 ])
 
-// 4. Create the control with all layers
+const radar = L.tileLayer.wms('https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi', {
+    layers: 'nexrad-n0r',
+    format: 'image/png',
+    transparent: true,
+    attribution: 'Weather data &copy; Iowa Environmental Mesonet'
+}).addTo(map);
+
 L.control.layers(
     { "Streets": streets, "Topographic": topo, "Satellite": satellite, "OpenStreetMap": osm },
     { "Quick eats": qeatsLayer, "Stores": storesLayer, "Landmarks": landmarksLayer, 
-        "Streets": linesLayer, "Buildings": buildingLayer }
+        "Streets": linesLayer, "Buildings": buildingLayer, "Radar": radar }
 ).addTo(map);
