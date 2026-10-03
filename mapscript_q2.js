@@ -162,5 +162,4 @@ L.control.layers(
     { "Streets": streets, "Topographic": topo, "Satellite": satellite, "OpenStreetMap": osm },
     { "Traditions Restaurants": traditionsLayer, "Entertainment": entertainmentLayer, "Landmarks": landmarksLayer, 
         "Streets": linesLayer, "Campus Icons": buildingLayer, "Radar": radar }
-    { collapsed: false }
 ).addTo(map);
